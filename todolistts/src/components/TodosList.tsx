@@ -9,7 +9,6 @@ const TodosList = () => {
   }
   return (
     <>
-    <button style={{width:'500px',height:'200px',fontSize:'30px'}} onClick={handleAddTodo}>Add Todo</button>
     {context?.todos?.map(todo=>(
         <SingleTodo {...todo} key={uuidv4()}/>
     ))}

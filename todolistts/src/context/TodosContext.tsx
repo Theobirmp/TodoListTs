@@ -16,7 +16,7 @@ type ContextProps={
 }
 export type TodosContextType={
     todos:Todo[];
-    dispatch:React.Dispatch<any>;
+    dispatch:React.Dispatch<ActionType>;
 }
 const initialState:Todo[] =[];
 interface GetAction{

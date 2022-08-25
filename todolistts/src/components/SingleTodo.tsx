@@ -16,12 +16,12 @@ const SingleTodo = (todo:Todo) => {
     const handleInputChange=(e:React.FormEvent<HTMLInputElement>)=>{
         setInputValue(e.currentTarget.value)
     }
-    const handleSubmitChange=(e:any,id:number)=>{
+    const handleSubmitChange=(id:number)=>{
         context?.dispatch({type:TODOS_ACTIONS.UPDATE,payload:{id,context:inputValue}})
         context?.dispatch({type:TODOS_ACTIONS.CANCEL_EDIT,payload:id})
         
     }
-    const handleMarkAsDone=(e:any,id:number)=>{
+    const handleMarkAsDone=(id:number)=>{
         context?.dispatch({type:TODOS_ACTIONS.TODO_DONE,payload:id})
     }
     const handleCancelEdit=(id:number)=>{
@@ -34,8 +34,8 @@ const SingleTodo = (todo:Todo) => {
             <input disabled={!todo.isEdit} type="text" value={inputValue} onChange={handleInputChange}/>
             <button onClick={()=>handleRemove(todo.id)}>remove</button>
             <button onClick={()=>handleEnableEditing(todo.id)}>enable editing</button>
-            <button onClick={(e)=>handleSubmitChange(e,todo.id)}>Submit Change</button>
-            <button onClick={(e)=>handleMarkAsDone(e,todo.id)}>mark as done</button>
+            <button onClick={(e)=>handleSubmitChange(todo.id)}>Submit Change</button>
+            <button onClick={(e)=>handleMarkAsDone(todo.id)}>mark as done</button>
             <button onClick={()=>handleCancelEdit(todo.id)}>Cancel Edit</button>
 
         </div>
